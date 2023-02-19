@@ -17,13 +17,15 @@ const firebaseConfig = {
 //   const analytics = getAnalytics(app);
 
 
-const provider = new GoogleAuthProvider();
-provider.setCustomParameters({
+const googleProvider = new GoogleAuthProvider();
+// const faceProvider = new FacebookAuthProvider();
+googleProvider.setCustomParameters({
     prompt: "select_account"
 })
 
 export const auth = getAuth();
-export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider);
+export const signInWithGoogleRedirect= () => signInWithRedirect(auth, googleProvider);
 
 //allows / creates a DB
 export const db = getFirestore();
